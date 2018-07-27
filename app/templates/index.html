@@ -1,0 +1,25 @@
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+
+<html>
+    <body>
+        <div id="app">
+            <p>时间：</p><p id="ticker1"></p>
+            <p>买一价:</p><p id="ticker2">00000</p>
+            <p>最新成交价:</p><p id="ticker3">00000</p>
+
+        </div>
+        <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+    </body>
+
+</html>
+
+<script>
+window.onload = function(){
+    console.log("hello");
+    document.getElementById('ticker1').innerHTML = Date().toLocaleString();
+    window.setInterval(get_ticker, 3000);
+};
+</script>
