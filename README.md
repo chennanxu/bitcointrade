@@ -21,3 +21,11 @@ pipenv shell
 pipenv install flask
 pipenv install requests
 ```
+
+## 运行
+
+```
+python runserver.py
+```
+
+在浏览器输入127.0.0.1
