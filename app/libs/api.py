@@ -1,30 +1,27 @@
 from .helper import HTTP
+from HuobiServices import *
+
 
 class API:
 
     @staticmethod
-    def get_ticker():
+    def get_trade():
         '''
         获取当前价格
         :return
-            date: 返回数据时服务器时间
-            buy: 买一价
-            high: 最高价
-            last: 最新成交价
-            low: 最低价
-            sell: 卖一价
-            vol: 成交量(最近的24小时):
+              "tick": {
+                "id": 消息id,
+                "ts": 最新成交时间,
+                "data": [
+                  {
+                    "id": 成交id,
+                    "price": 成交价钱,
+                    "amount": 成交量,
+                    "direction": 主动成交方向,
+                    "ts": 成交时间
+                  }
+                ]
+              }
         '''
-        url = "https://www.okcoin.com/api/v1/ticker.do?symbol=btc_usd"
-        res = HTTP.get(url)
-        return res
+        return get_trade('btcusdt')
 
-    @staticmethod
-    def get_depth():
-        '''
-        获取市场深度
-        :return:
-                asks :卖方深度
-                bids :买方深度
-        '''
-        url = "https://www.okcoin.com/api/v1/depth.do?symbol=btc_usd"

@@ -5,5 +5,5 @@ from .. import app
 
 @app.route('/api/ticker/')
 def ticker():
-    return jsonify(API.get_ticker())
+    return jsonify(API.get_trade())
 
